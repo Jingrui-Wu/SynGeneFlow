@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "syngeneflow"
+version = "0.1.0"
+description = "Synergy-aware residual flow matching for single-cell perturbation response prediction"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.1", "numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+data = ["anndata>=0.10", "h5py>=3.9"]
+test = ["pytest>=7"]
+
+[project.scripts]
+syngeneflow-train = "syngeneflow.train:run"
+syngeneflow-predict = "syngeneflow.inference:main"
+syngeneflow-evaluate = "syngeneflow.benchmarks.assess:main"
+syngeneflow-aggregate = "syngeneflow.analysis:main"
+syngeneflow-experiments = "syngeneflow.experiment:main"
+syngeneflow-inspect = "syngeneflow.tools.inspect_data:main"
+syngeneflow-splits = "syngeneflow.tools.make_splits:main"
+syngeneflow-export = "syngeneflow.tools.export_predictions:main"
+syngeneflow-config = "syngeneflow.tools.run_config:main"
+
+[tool.setuptools.packages.find]
+include = ["syngeneflow*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
