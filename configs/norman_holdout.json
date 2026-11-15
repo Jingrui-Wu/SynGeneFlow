@@ -1,0 +1,19 @@
+{
+  "dataset": "norman",
+  "training": "python -m syngeneflow.train",
+  "args": {
+    "split": "unseen",
+    "heldout_count": 12,
+    "n_genes": 5000,
+    "gene_list": "resources/norman_reference_gene_order.txt",
+    "gene_subset": 256,
+    "hidden": 128,
+    "heads": 4,
+    "gene_layers": 2,
+    "velocity_layers": 4,
+    "graph_topk": 30,
+    "batch_size": 16,
+    "train_steps": 100000,
+    "seed": 42
+  }
+}
